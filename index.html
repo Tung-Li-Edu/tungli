@@ -198,6 +198,17 @@ textarea{resize:vertical;min-height:90px}
 .lcard .row2 .k{flex:0 0 66px;color:#21376E;font-weight:700}
 .lcard .red{color:#D33;font-weight:700}
 .sample{font-size:11px;color:#556;text-align:center;margin-top:8px}
+.spot2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.pillar{border-radius:var(--r);padding:34px 32px;border:1px solid var(--line)}
+.pillar.warm{background:linear-gradient(160deg,#FBE3D6,#FFF6EE 70%)}
+.pillar.edge{background:linear-gradient(160deg,#E4ECE1,#F7FAF5 70%)}
+.pillar .pk{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.12em;padding:4px 12px;border-radius:999px;margin-bottom:12px;color:#fff}
+.pillar.warm .pk{background:#C8643B}
+.pillar.edge .pk{background:#5E7A5A}
+.pillar h3{font-family:"Noto Serif TC",serif;font-size:26px;line-height:1.4;margin-bottom:12px}
+.pillar .lead2{color:var(--ink2);margin-bottom:16px}
+.pillar.warm .checks li::before{background:#C8643B}
+.pk-line{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.12em;padding:4px 12px;border-radius:999px;margin-bottom:12px;color:#fff;background:#C98A22}
 .mini-feats{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:46px}
 .mf{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:26px}
 .mf h4{font-family:"Noto Serif TC",serif;font-size:20px;margin-bottom:6px}
@@ -243,7 +254,8 @@ footer b{color:#fff;font-family:"Noto Serif TC",serif;font-size:17px}
   .step{display:grid;grid-template-columns:68px 1fr;gap:14px;text-align:left}
   .step .dot{margin:0}
   .step .box{min-height:0}
-  .spot,.mini-feats,.posts{grid-template-columns:1fr}
+  .spot,.spot2,.mini-feats,.posts{grid-template-columns:1fr}
+  .pillar{padding:26px 22px}
   .reader article{padding:34px 22px}
   .courses.mini{grid-template-columns:1fr !important}
   nav ul,.nav .btn{display:none}
@@ -304,7 +316,9 @@ footer b{color:#fff;font-family:"Noto Serif TC",serif;font-size:17px}
       <h3>東立的陪伴，看得見</h3>
       <div class="stat-row">
         <div class="stat"><b>2014</b><span>立案・深耕內湖</span></div>
+        <div class="stat"><b>30 人</b><span>小班上限・照顧每一位</span></div>
         <div class="stat"><b>每週</b><span>LINE 聯絡本回報</span></div>
+        <div class="stat"><b>群組</b><span>課後解題・卡關馬上問</span></div>
         <div class="stat"><b>週二～四</b><span>匡衡夜自習</span></div>
         <div class="stat"><b>一對一</b><span>家教班個別指導</span></div>
       </div>
@@ -425,8 +439,8 @@ footer b{color:#fff;font-family:"Noto Serif TC",serif;font-size:17px}
           <ul>
             <li>每週二、三、四晚上開放</li>
             <li>段考後休息一週，讓孩子喘口氣</li>
-            <li>線上預約座位、可代訂晚餐</li>
-            <li>週末另有午餐／晚餐代訂</li>
+            <li>線上預約座位，彈性安排</li>
+            <li>安靜、專注，養成固定讀書節奏</li>
           </ul>
           <div class="course-meta">開放時間：每週二～週四<br>費用與時段：<a href="https://lin.ee/MQ1MJJx" class="linetxt">加入官方 LINE 帳號獲取更多資訊</a></div>
         </div>
@@ -465,18 +479,45 @@ footer b{color:#fff;font-family:"Noto Serif TC",serif;font-size:17px}
     <div class="sec-head">
       <div class="tag">WHAT MAKES US DIFFERENT</div>
       <h2>東立特色</h2>
-      <p>把家長最在意的「孩子到底學得怎麼樣」，變得一打開手機就看得到。</p>
+      <p>有溫度的陪伴，加上目標明確的課程——孩子學得安心，也學得紮實。</p>
     </div>
-    <div class="spot">
+    <div class="spot2">
+      <div class="pillar warm">
+        <div class="pk">我們的溫度</div>
+        <h3>老師認得每一個孩子</h3>
+        <p class="lead2">在東立，孩子不是座號，而是一個個被記得的名字。我們知道他卡在哪裡、需要什麼，也在意他學得開不開心。</p>
+        <ul class="checks">
+          <li>小班上課，每班最多 30 人，老師看得見每個孩子</li>
+          <li>課後專屬群組解題，回家卡關馬上問</li>
+          <li>課後有問必答，讓孩子敢發問、安心發問</li>
+          <li>每週 LINE 聯絡本，進度、作業、小考成績家長都看得到</li>
+          <li>段考後休息一週，讓孩子喘口氣再出發</li>
+          <li>從小五陪到高三，不用每個階段換一家補習班</li>
+        </ul>
+      </div>
+      <div class="pillar edge">
+        <div class="pk">課程優勢</div>
+        <h3>目標明確，不做白工</h3>
+        <p class="lead2">針對薇閣及各大私中的出題方向設計課程，從觀念建立到解題切入點，一步步扎實訓練。</p>
+        <ul class="checks">
+          <li>緊扣薇閣校內進度與段考命題風格</li>
+          <li>依多年教學經驗與歷屆考題自編講義，重點清楚</li>
+          <li>重視解題切入點，不靠題海，新題型也找得到方向</li>
+          <li>私中入學測驗模擬考，考前實戰檢測</li>
+          <li>九年級直升先修，開學就跟得上高中課程</li>
+        </ul>
+      </div>
+    </div>
+    <div class="spot" style="margin-top:46px">
       <div>
+        <div class="pk-line">親師溝通・加分項目</div>
         <h3>LINE 電子聯絡本<br>孩子這週學了什麼，一目了然</h3>
-        <p class="lead2">不用等孩子轉述、不用翻紙本。加入東立 LINE 官方帳號、完成綁定後，傳「聯絡本」就能看到這一週的完整學習狀況。</p>
+        <p class="lead2">不用等孩子轉述、不用翻紙本。加入東立 LINE 官方帳號、完成綁定後，傳「聯絡本」就能看到這一週的學習狀況。</p>
         <ul class="checks">
           <li>教學進度、本週作業、下週考試範圍</li>
-          <li>上週作業完成情形、小考分數與及格分數</li>
-          <li>全班成績級距，清楚知道孩子落在哪裡</li>
+          <li>小考分數與全班成績級距，清楚知道孩子落在哪裡</li>
           <li>請假時附上補課連結，在家就能補進度</li>
-          <li>可查看上週、上上週；一組綁定碼爸媽、阿公阿嬤都能一起看</li>
+          <li>一組綁定碼，爸媽、阿公阿嬤都能一起看</li>
         </ul>
       </div>
       <div>
@@ -504,9 +545,9 @@ footer b{color:#fff;font-family:"Noto Serif TC",serif;font-size:17px}
     </div>
     <div class="mini-feats">
       <div class="mf">
-        <h4>🌙 匡衡計畫・夜自習＋代訂餐</h4>
-        <p>每週二到四晚上開放自習，線上預約、選餐一次完成；週末也能代訂午餐、晚餐。孩子在東立讀書、吃飯，家長接送不用趕。</p>
-        <div class="tags"><span>線上預約</span><span>代訂晚餐</span><span>週末代訂餐</span><span>段考後休息一週</span></div>
+        <h4>🌙 匡衡計畫・夜自習</h4>
+        <p>取「鑿壁偷光」的匡衡精神，每週二到四晚上開放安靜、專注的自習空間，線上預約座位，讓孩子養成固定讀書的節奏。</p>
+        <div class="tags"><span>每週二～四</span><span>線上預約</span><span>段考後休息一週</span></div>
       </div>
       <div class="mf">
         <h4>📚 歷屆考卷資料庫</h4>
@@ -528,9 +569,9 @@ footer b{color:#fff;font-family:"Noto Serif TC",serif;font-size:17px}
       <div class="feat"><div class="num">01</div><div><h4>小班教學，照顧到每一位</h4><p>人數精實，老師能看見每個孩子的學習狀況，即時調整。</p></div></div>
       <div class="feat"><div class="num">02</div><div><h4>自編講義，精準有效</h4><p>依多年教學經驗與歷屆考題自編講義，重點清楚、不做白工。</p></div></div>
       <div class="feat"><div class="num">03</div><div><h4>訓練思考，而非死背</h4><p>強調解題切入點，培養孩子面對新題型也能找到方向的能力。</p></div></div>
-      <div class="feat"><div class="num">04</div><div><h4>LINE 聯絡本，家長安心</h4><p>教學進度、作業完成情形、小考成績與全班級距，家長在 LINE 上隨時查看。</p></div></div>
+      <div class="feat"><div class="num">04</div><div><h4>課後解題不斷線</h4><p>課後專屬群組解題，回家卡關馬上問；每週學習狀況也透過 LINE 回報家長。</p></div></div>
       <div class="feat"><div class="num">05</div><div><h4>歷屆考卷資料庫</h4><p>多年累積薇閣與內湖各校歷屆段考試卷，依年級、學期、段考分類整理，備考有方向。</p></div></div>
-      <div class="feat"><div class="num">06</div><div><h4>夜自習＋代訂餐，接送更從容</h4><p>匡衡計畫夜自習與週末代訂餐，孩子在東立安心讀書、吃飯，家長不用趕時間。</p></div></div>
+      <div class="feat"><div class="num">06</div><div><h4>匡衡夜自習，養成讀書節奏</h4><p>每週二到四晚上開放安靜的自習空間，孩子在東立專心讀書，讓努力變成習慣。</p></div></div>
     </div>
   </div>
 </section>
@@ -618,7 +659,7 @@ footer b{color:#fff;font-family:"Noto Serif TC",serif;font-size:17px}
   <h3>4. 熟悉學校的命題風格</h3>
   <p>每間學校出題都有自己的習慣。東立整理了多年的薇閣歷屆段考試卷，老師會依各年段的命題方向安排複習，讓孩子上考場時對題型不陌生。</p>
   <h3>5. 讀書時間要穩定，不要靠熬夜</h3>
-  <p>國中生最怕作息亂掉。與其考前熬夜，不如平常固定時間讀書。東立的匡衡計畫夜自習在每週二到四晚上開放，可以代訂晚餐，讓孩子有一個安靜、固定的讀書時段。</p>
+  <p>國中生最怕作息亂掉。與其考前熬夜，不如平常固定時間讀書。東立的匡衡計畫夜自習在每週二到四晚上開放，讓孩子有一個安靜、固定的讀書時段。</p>
   <p>段考成績起伏是正常的，重要的是每一次都知道自己哪裡要加強。如果孩子剛升上薇閣、還在適應，歡迎帶孩子來試聽，我們會先了解孩子的狀況再給建議。</p>
 </article>
 <article id="src-post-2">
@@ -681,14 +722,13 @@ footer b{color:#fff;font-family:"Noto Serif TC",serif;font-size:17px}
       <details><summary>東立在哪裡？好接送嗎？</summary><p>東立位於臺北市內湖區文德路 240 號 2 樓（一樓是神牛日式燒肉）。搭捷運文湖線到<b>文德站</b>，出站沿文德路往東走約 400 公尺，步行約 5 分鐘；公車可搭到「文德站（碧湖公園）」，站旁也有 YouBike 2.0 租借站。</p></details>
       <details><summary>孩子程度跟不上怎麼辦？</summary><p>入班前會先了解孩子的程度，上課期間老師也會依測驗結果個別加強，並透過聯絡本與家長保持溝通。</p></details>
       <details><summary>家長如何知道孩子的上課狀況？</summary><p>加入東立 LINE 官方帳號、輸入主任提供的六位數綁定碼後，傳送「聯絡本」就能看到本週的教學進度、作業、小考成績與級距；可以往前查看上週、上上週。孩子請假時還會附上補課連結。</p></details>
-      <details><summary>夜自習需要每天參加嗎？</summary><p>不需要。匡衡計畫夜自習於每週二、三、四晚上開放，採預約制，可依需求線上預約日期，也可代訂晚餐；段考後那一週休息。</p></details>
+      <details><summary>夜自習需要每天參加嗎？</summary><p>不需要。匡衡計畫夜自習於每週二、三、四晚上開放，採預約制，可依需求線上預約日期；段考後那一週休息。</p></details>
       <details><summary>只有薇閣的學生可以上薇閣專班嗎？</summary><p>薇閣專班完全配合薇閣的進度與段考範圍，主要招收薇閣學生。其他學校的同學歡迎先來電或 LINE 詢問，我們會依孩子的學校與程度建議適合的班別或家教班。</p></details>
       <details><summary>準備私中要從幾年級開始？</summary><p>建議小五把數學觀念打穩，小六再進入私中題型專項訓練與模擬測驗。已經小六才開始也不用緊張，我們會先了解孩子程度，再安排加強重點。</p></details>
       <details><summary>學期中可以插班嗎？</summary><p>可以。學期中加入的同學，學費依實際上課的堂數計算，之前的進度老師會協助補上。</p></details>
       <details><summary>請假的話怎麼補課？</summary><p>孩子請假時，LINE 聯絡本會附上補課連結，在家就能把那一堂的進度補上；有不懂的地方，下次上課再問老師。</p></details>
       <details><summary>報兩科有優惠嗎？</summary><p>有，東立提供第二科優惠，舊生續報也有優惠。實際金額依班別而定，歡迎來電或 LINE 詢問主任。</p></details>
       <details><summary>學費怎麼計算？退費怎麼處理？</summary><p>學費依班別與堂數計算，詳細費用請<a href="https://lin.ee/MQ1MJJx" class="linetxt">加入官方 LINE 帳號獲取更多資訊</a>，或來電詢問。退費依臺北市補習班相關規定辦理。</p></details>
-      <details><summary>夜自習可以訂晚餐嗎？週末呢？</summary><p>可以。預約夜自習時可以一起代訂晚餐；週六、週日在東立讀書的同學，也可以代訂午餐和晚餐，店家每週更換。</p></details>
       <details><summary>家教班怎麼安排？</summary><p>家教班採一對一，依孩子的時間、學校進度與需要加強的地方安排上課內容，上課狀況會回報給家長。</p></details>
       <details><summary>有歷屆考卷可以練習嗎？</summary><p>有。東立整理了多年的薇閣與內湖各校歷屆段考試卷，老師會依孩子的學校與年級挑選，用在課堂練習與考前複習。</p></details>
     </div>
