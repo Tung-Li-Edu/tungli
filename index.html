@@ -174,6 +174,11 @@ label{display:block;font-size:14px;font-weight:500;margin-bottom:6px}
 input,select,textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font:inherit;font-size:15px;background:var(--cream);color:var(--ink);margin-bottom:16px}
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--terra);background:#fff}
 textarea{resize:vertical;min-height:90px}
+.cks{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;margin-bottom:16px}
+.ck{display:flex;align-items:center;gap:8px;font-weight:400;font-size:14px;margin:0;background:var(--cream);border:1.5px solid var(--line);border-radius:12px;padding:9px 12px;cursor:pointer}
+.ck input{width:16px;height:16px;margin:0;accent-color:var(--terra);flex:0 0 auto}
+.ck:has(input:checked){border-color:var(--terra);background:#fff}
+
 .form-ok{display:none;background:#EEF4EC;border:1px solid var(--sage);color:#3F5A3C;border-radius:12px;padding:14px 16px;margin-top:6px;font-size:15px}
 
 
@@ -719,7 +724,7 @@ footer b{color:#fff;font-family:"Noto Serif TC",serif;font-size:17px}
 
       <form id="form">
         <h3>預約免費試聽</h3>
-        <div class="sub" id="formSub">填好後按送出，會開啟東立 LINE 並帶入內容，按「傳送」就完成預約</div>
+        <div class="sub" id="formSub">填好後按送出，預約內容會直接傳給東立，我們會盡快以電話與您聯繫</div>
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
         <div class="row">
           <div><label>家長姓名 *</label><input required name="parent" placeholder="例：王小姐"></div>
@@ -734,18 +739,15 @@ footer b{color:#fff;font-family:"Noto Serif TC",serif;font-size:17px}
               <option>高中</option>
             </select>
           </div>
-          <div><label>有興趣的課程</label>
-            <select name="course">
-              <option value="">請選擇</option><option>薇閣專班</option><option>小六升私中課程（小五、小六）</option><option>匡衡計畫・夜自習</option><option>寒假私中特訓班</option><option>段考考前衝刺班</option><option>英檢初級專班</option><option>家教班（一對一）</option><option>尚未決定，想先諮詢</option>
-            </select>
-          </div>
         </div>
+        <label>有興趣的課程（可複選）</label>
+        <div class="cks"><label class="ck"><input type="checkbox" name="course" value="薇閣專班"><span>薇閣專班</span></label><label class="ck"><input type="checkbox" name="course" value="小六升私中課程（小五、小六）"><span>小六升私中課程（小五、小六）</span></label><label class="ck"><input type="checkbox" name="course" value="匡衡計畫・夜自習"><span>匡衡計畫・夜自習</span></label><label class="ck"><input type="checkbox" name="course" value="寒假私中特訓班"><span>寒假私中特訓班</span></label><label class="ck"><input type="checkbox" name="course" value="段考考前衝刺班"><span>段考考前衝刺班</span></label><label class="ck"><input type="checkbox" name="course" value="英檢初級專班"><span>英檢初級專班</span></label><label class="ck"><input type="checkbox" name="course" value="家教班（一對一）"><span>家教班（一對一）</span></label><label class="ck"><input type="checkbox" name="course" value="尚未決定，想先諮詢"><span>尚未決定，想先諮詢</span></label></div>
         <label>想詢問的事情</label>
         <textarea name="msg" placeholder="例如：孩子目前程度、方便試聽的時間…"></textarea>
-        <button class="btn" type="submit" id="formBtn" style="width:100%;justify-content:center">用 LINE 送出預約</button>
-        <div class="form-ok" id="ok">✅ 已為您開啟東立 LINE 官方帳號，並帶入預約內容，請在 LINE 按下「傳送」就完成預約囉！若沒有自動開啟，也歡迎直接來電 02-2627-1757。</div>
+        <button class="btn" type="submit" id="formBtn" style="width:100%;justify-content:center">送出預約</button>
+        <div class="form-ok" id="ok">✅ 已為您開啟東立 LINE 官方帳號，並帶入預約內容，請在 LINE 按下「傳送」就完成預約囉！若還沒加入好友，請先加入再按傳送。若沒有自動開啟，也歡迎直接來電 02-2627-1757。</div>
         <div class="form-ok" id="okPc">✅ 已收到您的預約！我們會盡快以電話與您聯繫。若急著詢問，也歡迎直接來電 02-2627-1757。</div>
-        <div class="form-ok" id="errPc" style="background:#FBEDE8;border-color:#D9826A;color:#8A3B26">送出失敗了，請稍後再試，或直接來電 02-2627-1757，也可以寄信到 th26271757@gmail.com。</div>
+        <div class="form-ok" id="errPc" style="background:#FBEDE8;border-color:#D9826A;color:#8A3B26">送出失敗了，請稍後再試，或直接來電 02-2627-1757，也可以加入 <a href="https://lin.ee/MQ1MJJx" class="linetxt">東立 LINE 官方帳號</a> 留言給我們。</div>
       </form>
     </div>
   </div>
@@ -778,20 +780,26 @@ function goHash(){const h=decodeURIComponent(location.hash.slice(1));
   showTab(t);
   if(el===t||el===t.querySelector('section,.hero')){window.scrollTo(0,0);}else{requestAnimationFrame(()=>el.scrollIntoView());}}
 window.addEventListener('hashchange',goHash);goHash();
+// 預約表單：資料一律送到 Google Apps Script（存試算表＋LINE 通知主任）；手機另外跳到東立 LINE 官方帳號並帶入內容
+const FORM_URL='https://script.google.com/macros/s/AKfycbzC2m_FgT21Q3kM0uDL1si3JTm3VlGmuokng098VfTC3uSc2VdG2mSz22_jt7shB4ngxQ/exec';// ← 部署 Apps Script 後，把網頁應用程式網址貼在這裡
 const isMobile=/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
-if(!isMobile){document.getElementById('formSub').textContent='填好後按送出，預約內容會直接傳給東立，我們會盡快以電話與您聯繫';document.getElementById('formBtn').textContent='送出預約';}
+if(isMobile){document.getElementById('formSub').textContent='填好後按送出，會開啟東立 LINE 並帶入內容，按「傳送」就完成預約';document.getElementById('formBtn').textContent='用 LINE 送出預約';}
 document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();const f=e.target;
-const L={parent:'家長姓名',phone:'聯絡電話',grade:'學生年級',course:'有興趣的課程',msg:'想詢問的事情'};const lines=['【網站預約試聽】'];
-for(const k in L){const el=f.elements[k];if(el&&el.value.trim())lines.push(L[k]+'：'+el.value.trim());}
-if(isMobile){window.open('https://line.me/R/oaMessage/%40663otgez/?'+encodeURIComponent(lines.join('\n')),'_blank');document.getElementById('ok').style.display='block';return;}
 if(f.elements._honey.value)return;
+const val=k=>k==='course'?[...f.querySelectorAll('input[name=course]:checked')].map(x=>x.value).join('、'):((f.elements[k]&&f.elements[k].value)||'').trim();
+const data={source:isMobile?'手機':'電腦'};['parent','phone','grade','course','msg'].forEach(k=>data[k]=val(k));
+const send=opt=>FORM_URL?fetch(FORM_URL,Object.assign({method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)},opt)):Promise.reject();
+if(isMobile){
+  const L={parent:'家長姓名',phone:'聯絡電話',grade:'學生年級',course:'有興趣的課程',msg:'想詢問的事情'};const lines=['【網站預約試聽】'];
+  for(const k in L){if(data[k])lines.push(L[k]+'：'+data[k]);}
+  window.open('https://line.me/R/oaMessage/%40663otgez/?'+encodeURIComponent(lines.join('\n')),'_blank');
+  send({keepalive:true}).catch(()=>{});
+  document.getElementById('ok').style.display='block';return;}
 const btn=document.getElementById('formBtn'),ok=document.getElementById('okPc'),err=document.getElementById('errPc');
 btn.disabled=true;btn.textContent='送出中…';ok.style.display='none';err.style.display='none';
-const data={_subject:'【東立官網】預約試聽 - '+f.elements.parent.value.trim(),_template:'table'};
-for(const k in L){data[L[k]]=f.elements[k].value.trim()||'（未填）';}
-fetch('https://formsubmit.co/ajax/th26271757@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-.then(r=>r.json()).then(j=>{if(String(j.success)!=='true')throw 0;ok.style.display='block';f.reset();})
-.catch(()=>{err.style.display='block';}).finally(()=>{btn.disabled=false;btn.textContent='送出預約';});});
+const ctl=new AbortController();const timer=setTimeout(()=>ctl.abort(),20000);
+send({signal:ctl.signal}).then(r=>r.json()).then(j=>{if(!j.success)throw 0;ok.style.display='block';f.reset();})
+.catch(()=>{err.style.display='block';}).finally(()=>{clearTimeout(timer);btn.disabled=false;btn.textContent='送出預約';});});
 
 const reader=document.getElementById('reader'),rb=document.getElementById('readerBody');
 function openPost(id){const src=document.getElementById('src-'+id);if(!src)return;
